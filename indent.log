@@ -1,0 +1,31 @@
+INFO:  latexindent.pl version 3.24.4, 2024-07-18, a script to indent .tex files
+       latexindent.pl lives here: /home/bleu/scripts/
+       Wed Mar 12 15:07:10 2025
+       Filename: /home/bleu/Documents/GitHub/Compte-rendu-Stage-2025-LIRMM/demo.tex
+INFO:  Processing switches:
+INFO:  Directory for backup files and log file indent.log:
+       /home/bleu/Documents/GitHub/Compte-rendu-Stage-2025-LIRMM
+INFO:  Perl modules are being loaded from the following directories:
+       /usr/share/perl/5.36/FindBin.pm
+       /usr/local/share/perl/5.36.0/YAML/Tiny.pm
+       /usr/share/perl/5.36/File/Copy.pm
+       /usr/lib/x86_64-linux-gnu/perl-base/File/Basename.pm
+       /usr/lib/x86_64-linux-gnu/perl-base/Getopt/Long.pm
+       /usr/local/share/perl/5.36.0/File/HomeDir.pm
+INFO:  LatexIndent perl modules are being loaded from, for example:
+       /home/bleu/scripts/LatexIndent/Document.pm
+INFO:  YAML settings read: defaultSettings.yaml
+       Reading defaultSettings.yaml from /home/bleu/scripts/defaultSettings.yaml
+INFO:  YAML reading settings
+       Home directory is /home/bleu
+       latexindent.pl didn't find indentconfig.yaml or .indentconfig.yaml
+       see all possible locations: https://latexindentpl.readthedocs.io/en/latest/sec-appendices.html#indentconfig-options)
+INFO:  Phase 1: searching for objects
+INFO:  Phase 2: finding surrounding indentation
+INFO:  Phase 3: indenting objects
+INFO:  Phase 4: final indentation check
+INFO:  Output routine:
+       Not outputting to file; see -w and -o switches for more options.
+       --------------
+INFO:  Please direct all communication/issues to:
+        https://github.com/cmhughes/latexindent.pl
