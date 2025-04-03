@@ -1,0 +1,92 @@
+% $ biblatex auxiliary file $
+% $ biblatex bbl format version 3.2 $
+% Do not modify the above lines!
+%
+% This is an auxiliary file used by the 'biblatex' package.
+% This file may safely be deleted. It will be recreated by
+% biber as required.
+%
+\begingroup
+\makeatletter
+\@ifundefined{ver@biblatex.sty}
+  {\@latex@error
+     {Missing 'biblatex' package}
+     {The bibliography requires the 'biblatex' package.}
+      \aftergroup\endinput}
+  {}
+\endgroup
+
+
+\refsection{0}
+  \datalist[entry]{ynt/global//global/global}
+    \entry{HPnoise}{article}{}
+      \name{author}{2}{}{%
+        {{hash=7b771a91802a08ac414dbb7eb35f5bd7}{%
+           family={Fournier},
+           familyi={F\bibinitperiod},
+           given={Romain},
+           giveni={R\bibinitperiod}}}%
+        {{hash=71fc3c9eafc8ff2124217509e63a5193}{%
+           family={Sauvage},
+           familyi={S\bibinitperiod},
+           given={Basile},
+           giveni={B\bibinitperiod}}}%
+      }
+      \strng{namehash}{c562209d03a04ccbb2f7d442e6df797c}
+      \strng{fullhash}{c562209d03a04ccbb2f7d442e6df797c}
+      \strng{bibnamehash}{c562209d03a04ccbb2f7d442e6df797c}
+      \strng{authorbibnamehash}{c562209d03a04ccbb2f7d442e6df797c}
+      \strng{authornamehash}{c562209d03a04ccbb2f7d442e6df797c}
+      \strng{authorfullhash}{c562209d03a04ccbb2f7d442e6df797c}
+      \field{labelalpha}{FS18}
+      \field{sortinit}{2}
+      \field{sortinithash}{8b555b3791beccb63322c22f3320aa9a}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{title}{Mix-Max: A Content-Aware Operator for Real-Time Texture Transitions}
+      \field{year}{2018}
+      \verb{urlraw}
+      \verb https://inria.hal.science/hal-01824773v1/document
+      \endverb
+      \verb{url}
+      \verb https://inria.hal.science/hal-01824773v1/document
+      \endverb
+    \endentry
+    \entry{mixmax}{article}{}
+      \name{author}{2}{}{%
+        {{hash=7cd487dc85bee7c114f0c253a889a365}{%
+           family={Heitz},
+           familyi={H\bibinitperiod},
+           given={Eric},
+           giveni={E\bibinitperiod}}}%
+        {{hash=46f09761287ea9fcfe129e62d2be7b21}{%
+           family={Neyret},
+           familyi={N\bibinitperiod},
+           given={Fabrice},
+           giveni={F\bibinitperiod}}}%
+      }
+      \strng{namehash}{098dd87a7a8d77b57f9b315ff8b24612}
+      \strng{fullhash}{098dd87a7a8d77b57f9b315ff8b24612}
+      \strng{bibnamehash}{098dd87a7a8d77b57f9b315ff8b24612}
+      \strng{authorbibnamehash}{098dd87a7a8d77b57f9b315ff8b24612}
+      \strng{authornamehash}{098dd87a7a8d77b57f9b315ff8b24612}
+      \strng{authorfullhash}{098dd87a7a8d77b57f9b315ff8b24612}
+      \field{labelalpha}{HN24}
+      \field{sortinit}{2}
+      \field{sortinithash}{8b555b3791beccb63322c22f3320aa9a}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{COMPUTER GRAPHICS forum}
+      \field{title}{High-Performance By-Example Noise using a Histogram-Preserving Blending Operator}
+      \field{year}{2024}
+      \verb{urlraw}
+      \verb https://onlinelibrary.wiley.com/doi/epdf/10.1111/cgf.15193
+      \endverb
+      \verb{url}
+      \verb https://onlinelibrary.wiley.com/doi/epdf/10.1111/cgf.15193
+      \endverb
+    \endentry
+  \enddatalist
+\endrefsection
+\endinput
+
