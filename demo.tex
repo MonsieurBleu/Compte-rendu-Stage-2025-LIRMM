@@ -33,9 +33,9 @@
 % The preamble ends with the command \begin{document}
 \begin{document} % All begin commands must be paired with an end command somewhere
 \fontsize{9pt}{10pt}\selectfont
-\maketitle % creates title using information in preamble (title, author, date)
 
 \onecolumn
+\maketitle % creates title using information in preamble (title, author, date)
 \tableofcontents
 \twocolumn
 
@@ -45,19 +45,14 @@
 \section{Introduction}
 
 \subsection{Contexte du stage}
-\ldots
 
 \subsection{Présentation du sujet et des problématiques}
-\ldots
 
 \subsubsection{Processus Stochastique}
-\ldots
 
 \subsubsection{Variation Spatialle}
-\ldots
 
 \subsubsection{Temps réel: utilisations et implications}
-\ldots
 
 \subsubsection{Parrallélisation}
 \subsubsection{Complexité mémoirielle et calculatoire sur GPU}
@@ -65,16 +60,12 @@
 
 %======================= TRAVAUX PRECEDENTS =======================%
 \section{Travaux précédents}
-\ldots
 
 \subsection{State of the Art in Procedural Noise Functions}
-\ldots
 
 \subsection{Random Phase Textures: Theory and Synthesis}
-\ldots
 
 \subsection{Cyclostationary Gaussian noise: theory and synthesis}
-\ldots
 
 %======================= SPIKE NOISE, APPROCHE CAS PAR CAS =======================%
 \section{Spike Noise: Approche cas par cas}
@@ -86,7 +77,7 @@
 \subsection{Intégration}
 
 %======================= PROCEDURAL PRIORITY MAPPING FOR MIX MIX =======================%
-\pagebreak
+\clearpage
 
 \section{Mappage procédural de priorité : Approche générale de mélange}
 
@@ -132,13 +123,14 @@ préservant la variance \cite{HPnoise}, s'exprimant :
 \begin{equation}\label{MixVariancePreserving}
   M^{cov}
   =
-  M^{L}(\mathbb{E}[V_i], \alpha_{V_i}, \dots) + \frac {\sum \alpha_{V_i}(V_i
-    - \mathbb{E}[V_i])} {\sqrt{\sum \alpha_{V_i}}}
+  M^{L}(\mathbb{E}[V_0], \alpha_{V_0}, \dots) + \frac {\sum \alpha_{V_i}(V_i
+    - \mathbb{E}[V_i])} {\sqrt{\sum \alpha_{V_i}^2}}
 \end{equation}
 
-Si les entrées possèdent une distribution gaussiennes, l'histogramme de ces
+Si les entrées possèdent une distribution gaussienne, l'histogramme de ces
 dernières est alors également préservé. Maintenir les propriétés statistiques
-des entrées permet une meilleur qualitée visuelle du mélange.
+des entrées permet une meilleur qualitée visuelle du mélange, en évitant les
+biais visible sur une transition \cite{HPnoise}.
 
 Dans le cas d'un mélange entre deux entrées, nous ne notons qu'un seul biais $A
   = \alpha_{x_1}$ car le second peut être déduit de façon triviale par
@@ -159,10 +151,11 @@ seule fonction d'influence.
 \subsection{L'opérateur Mix Max}
 
 Romain Fournier et Basile Sauvage ont présentés en 2024 l'opérateur d'influence
-de mélange MixMax \cite{mixmax}. Ce dernier répond à un besoin d'avoir des
-transitions de textures à la fois nettes et sensibles à leur contenu. Cette
-méthode se base sur l'existence d'une carte de priorité, donnée pour chaque
-entrées. Ce mélange est filtrable, paramétrable et s'exprime sous la forme :
+de mélange MixMax \cite{mixmax}. Ce dernier répond à un besoin d'obtenir en
+temps réel des transitions de textures à la fois nettes et sensibles à leur
+contenu. Cette méthode se base sur l'existence d'une carte de priorité, donnée
+pour chaque entrées. Ce mélange est analytiquement filtrable, paramétrable et
+s'exprime sous la forme :
 
 \begin{equation}\label{MixMax2024}
   A = \Phi
@@ -181,21 +174,21 @@ transition) et $\Phi$ un facteur de lissage calculé à partir de la différence
 entre les priorités (en application, il est approximé à partir d'une loi
 gaussienne).
 
-\subsection{Apports pour les processus stochastique en niveau de gris}
+\subsection{Apports pour les processus stochastiques en niveau de gris}
 
 Une transition entre des processus stochastiques procéduraux permet de créer
 une infinité de bruits variant spatiallement. Cependant, les mélanges existants
 pour ces processus, comme l'influence linéaire, apportent une pauvre qualitée
 visuelle. L'application d'un mélange sensible au contenu dans ce cadre
-permettrait d'obtenir des résulats temps réels similaire à celle de l'opérateur
-Mix-Max tout en exploitant les priorité de tels processus, nottament en étant
+permettrait d'obtenir des résulats temps réels similaires à ceux de l'opérateur
+Mix-Max tout en exploitant les propriétés de tels processus, nottament en étant
 non borné. Un tel apport, à notre connaissance, n'a encore jamais été étudié.
 
 Dans le papier de Fournier et Sauvage, cette fonction d'influence n'est
 utilisée que sur des textures matricielles possédants une carte de priorité
 déjà existante. Nous proposons une fonction de calcul temps réel de la priorité
 d'un processus stochastique, ainsi qu'un nouvel opérateur d'influence inspiré
-des principes du Mix-Max, mais donnant un meilleur contrôle visuel.
+des principes du Mix-Max plus adapté à notre cas d'utilisation.
 
 \subsection{Estimation de la priorité d'un processus stochastique}
 
@@ -209,6 +202,13 @@ disportionnée dans le mélange, comme visible dans la figure
 \ref{fig::MixMax_PriorityCorrection}. Des valeures extrêmes pevent même
 entrainer la carte de priorité à briser les priorité vus à l'équation
 (\ref{MixLimit}).
+
+\begin{figure}
+  \includegraphics[width=\linewidth]{figures/MixMax_Priority.png}
+  \caption{Comparaison entre les processus stochastiques originaux (1) et les résultats donnés par la fonction de priorité (2). Les niveaux de gris originaux (1) sont compris entre 0 (noir) et 1 (blanc) tandis qu'ils sont représentés la ligne (2) dans l'interval -1 (noir) à +1 (blanc).
+  }
+  \label{fig::MixMax_Priority}
+\end{figure}
 
 Nous proposons une solution, notée $\mathcal{P}$, de priorité procédurale
 utilisant les propriétés statistiques d'un processus stochastique donné afin
@@ -227,13 +227,6 @@ variable aléatoire $V$.
     \frac{V - \mathbb{E}[V]}{\sqrt{\sigma[V]}}, & \text{Sinon}
   \end{cases}
 \end{equation}
-
-\begin{figure}
-  \includegraphics[width=\linewidth]{figures/MixMax_Priority.png}
-  \caption{Comparaison entre les processus stochastiques originaux (1) et les résultats donnés par la fonction de priorité (2). Les niveaux de gris originaux (1) sont compris entre 0 (noir) et 1 (blanc) tandis qu'ils sont représentés la ligne (2) dans l'interval -1 (noir) à +1 (blanc).
-  }
-  \label{fig::MixMax_Priority}
-\end{figure}
 
 Cette méthode donnera des bornes d'étalements, ie les bornes de l'interval
 d'intensité dans l'entrée qui sera convertis à $[-1, 1]$ dans la sortie,
@@ -259,54 +252,172 @@ nous avons pus tester.
   \label{fig::MixMax_PriorityCorrection}
 \end{figure}
 
-\subsection{Nouvel opérateur d'influence équilibré et paramétrable}
+\subsection{Nouvel opérateur d'influence équilibré}
 
 Nous proposons un opérateur d'influence $\mathcal{A}$ entre deux processus
-stochastiques $V_0$ et $V_1$ basé sur les principes du MixMax simplifiant la
+stochastiques $V_0$ et $V_1$ basé sur les principes du MixMax, simplifiant la
 formule donnée dans le papier original \cite{mixmax} grâce aux propriétés
 obtenues par notre fonction de priorité procédurale.
 
-\begin{equation}
+\begin{figure}
+  \includegraphics[width=\linewidth]{figures/MixMax_Comparaison.png}
+  \caption{
+  Résultats du mélange entre Voronoï et Gradient (a), Voronoï et LRP2 (b) ainsi que LRP2 et Gradient (c). La moitié supérieur des céllules montrent un gradient d'influence linéaire $\alpha$ et la partie inférieur un gradient utilisant la fonction $\mathcal{A}^c_{0.5}$ en influence.}
+  \label{fig::MixMax_Comparaison}
+\end{figure}
+
+% \begin{equation}
+%   \begin{split}
+%     \mathcal S^b_a(x) &=
+%     \begin{cases}
+%       0,                                                                      & \text{Si } x < a \\
+%       1,                                                                      & \text{Si } x > b \\
+%       3\left(\frac{x - a}{b - a}\right)^2-2\left(\frac{x - a}{b - a}\right)^3 & \text{Sinon}
+%     \end{cases}
+%     \\
+%     \\
+%     \mathcal{A}^r_s(V_0, V_1, \alpha)  &= \mathcal S^{+s}_{-s}\left(
+%     \frac{\mathcal P^{\pm 1}(V_0) +\mathcal P^{\pm 1}(V_1)}{2}+ \alpha\left(s + \frac{1}{r}\right)\right)
+%   \end{split}
+% \end{equation}
+
+\begin{equation}\label{A_base}
   \begin{split}
-    \mathcal S^b_a(x) &=
+    \mathcal L_a(x) &=
     \begin{cases}
-      0,                                                                      & \text{Si } x < a \\
-      1,                                                                      & \text{Si } x > b \\
-      3\left(\frac{x - a}{b - a}\right)^2-2\left(\frac{x - a}{b - a}\right)^3 & \text{Sinon}
+      0,                        & \text{Si } x < a \\
+      1,                        & \text{Si } x > b \\
+      \frac{x}{a} - \frac{1}{2} & \text{Sinon}
     \end{cases}
     \\
     \\
-    \mathcal{A}^r_s(V_0, V_1, \alpha)  &= \mathcal S^{+s}_{-s}\left(
-    \frac{\mathcal P_p^{\pm 1}(V_0) +\mathcal P_p^{\pm 1}(V_1)}{2}+ \alpha\left(s + \frac{1}{r}\right)\right)
+    \rho &= \frac{\mathcal{P}^{\pm 1}_{V_0} + \mathcal{P}^{\pm 1}_{V_1}}{2}
+    \\
+    \\
+    |\rho| &= \frac{|\mathcal{P}_{V_0}| + |\mathcal{P}_{V_1}|}{2}
+    \\
+    \\
+    \mathcal{A}_s &= \mathcal{L}^s\left(
+    \rho + (2 \alpha - 1)(s + |\rho|)
+    \right)
   \end{split}
 \end{equation}
 
-Cette fonction prend en entrée un biais linéaire $\alpha$, une valeur de
-lissage $s$ strictement positive ainsi qu'un niveau de portée $r$ compris dans
-l'interval $]0, 1]$. Nous montrons l'impacte de ces paramètres sur le mélange
-dans la figure \ref{fig::MixMax_RangeSmoothnessAlpha}.
+Cette fonction utilise un biais linéaire $\alpha$ ainsi qu'une valeur de
+lissage $s$ strictement positive. Nous montrons l'impact de ces paramètres sur
+le mélange dans la figure \ref{fig::MixMax_SmoothnessAlpha}.
 
-\begin{figure}
-  \includegraphics[width=\linewidth]{figures/MixMax_Range_Smoothness_Alpha.png}
-  \caption{
-    Résultats du mélange entre Voronoï et Local Rando Phase (LRP) en fonction de l'étendue $r$ pour une valeur de lissage de 0 (a), de 0.5 (b) et de 1.0 (c). Les entrées du mélange ont été colorés afin d'améliorer la visibilité. Nous montrons également les résultats de la fonction d'influence dans le quart inférieur des céllules.
-  }
-  \label{fig::MixMax_RangeSmoothnessAlpha}
-\end{figure}
+Chacune des deux fonction de priorité peut être inversée. Les différences
+visuelles qu'impliquent ces inversions sont visibles sur la figure
+\ref{fig::MixMax_Invert}, où l'équilibre du constrast dans les zones de
+transition varie en fonction du paramétrage.
+
+Lorsque nous comparons la moyenne des présences de chaque bruit en fonction de
+$\alpha$, nous remarquons des imrpécésions. L'influence de sortie suit une
+transition douce lorsque l'écart des priortés à la moyenne est grand. Le
+principe de transition douce est un outil régulièrement utilisé dans la
+création de mouvements ou de transitions agréables à l'oeil humain. Cependant,
+ce phénomène entraine une disparité de présence des bruits dans notre mélange.
+Nous proposons une version corrigée de notre méthode prennant en compte ce
+biais et le corrigeant à l'aide de la fonction de transition douce inverse
+$\mathcal{S}^{-1}$ :
 
 \begin{figure}
   \includegraphics[width=\linewidth]{figures/MixMax_Invert.png}
   \caption{
-    Résultats du mélange entre Voronoï et Perlin en fonction du biais d'entrée $\alpha$ (lignes) et les directives d'inversions de priorités données à la fonction d'influence. Nous remarquons que lorsqu'une seule des priorité est inversé, des biais statistiques deviennent visibles.
+  Résultats du mélange utilisant $\mathcal{A}^c_{0.5}$ entre Voronoï et Perlin en fonction du biais d'entrée $\alpha$ (lignes) et des directives d'inversions de priorités (colonnes). Nous remarquons que lorsqu'une seule des priorité est inversée, des biais statistiques deviennent visibles.
   }
   \label{fig::MixMax_Invert}
 \end{figure}
 
-\subsection{Nouvel opérateur d'influence équilibré et paramétrable}
+\begin{equation}\label{A_corrected}
+  \mathcal{A}_s^c =
+  |\rho| \mathcal{S}^{-1}(\mathcal{A}_s)
+  +
+  (1-|\rho|)\mathcal{A}_s
+\end{equation}
+
+% Pour finir, l'utilisation de la fonction $\mathcal{S}$, dite de transition
+% douce, permet d'obtenir de meilleur transitions entre les entrées. Cette
+% fonction représente une transition non linéaire entre deux valeurs respectant
+% le principe d'atténuation en sortie et en entrée. Ce principe est régulièrement
+% utilisé dans l'animation ou la création de transitions visuelles. Cette
+% fonction peut être remplacée par n'importe quel autre polynôme respectant les
+% propriétés d'une transition. Cependant, dans notre MixMax, nous utiliseront la
+% fonction $\mathcal{S}$ pour sa pertinence dans la création de transition
+% nettes.
+
+\newpage
+
+\begin{figure}
+  \includegraphics[width=\linewidth]{figures/MixMax_Scale.png}
+  \caption{
+    Résultats de transition utilisant $\mathcal{A}^c_s$ entre deux processus analytiquement filtrable LRP1 et LRP2 en fonction du lissage $s$ (lignes) et de la taille de la zone $\mathbb{P}$. Les entrées du mélange sont colorés pour une meilleur visibilité. La valeur de l'influence est également visible dans le quart inférieur de chaque céllule.
+  }
+  \label{fig::MixMax_Scale}
+\end{figure}
 
 \subsection{Démonstration de l'intégration}
 
-\newpage
+Comme expliqué dans la section 1.2.6, le rendu d'une surface en temps réel
+nécéssite un filtrage analytique de sa texture. Dans notre cas, nous notons
+$V(\mathbb{P})$ l'empreinte d'une variable aléatoire $V$ sur la zone
+$\mathbb{P}$ de taille $||\mathbb{P}||$. Selon l'équation \ref{A_base}, nous
+obtenons :
+
+% Faire : L'espérence, selon la réalisation, de l'influence lorsque la zone tend vers 0 est égal à...
+
+\begin{equation}\label{A_filtrage_limites}
+  \begin{split}
+    \lim_{||\mathbb{P}|| \rightarrow +\infty} \mathcal{P}_{V}(\mathbb{P}) &= 0
+    \\
+    \lim_{||\mathbb{P}|| \rightarrow +\infty} \mathcal{A}_s^c(\mathbb{P}) &= \alpha(\mathbb{P})
+    \\
+    \lim_{||\mathbb{P}|| \rightarrow +\infty} \mathcal{A}_s(\mathbb{P}) &= \alpha(\mathbb{P})
+  \end{split}
+\end{equation}
+
+Sur les très larges zones, notre mélange est ainsi correctement filtré
+analytiquement. Cependant, comme vu précedement, sur des petites zones,
+l'espérance de la présence des entrées n'est pas linéaire avec $A_s$. La
+correction $A_s^c$ permet ainsi d'obtenir un filtrage très précis.
+
+\begin{equation}\label{A_filtrage_limites2}
+  \begin{split}
+    \int_{\omega} \lim_{||\mathbb{P}|| \rightarrow 0} \mathcal{A}_s(\mathbb{P}) &\approx \mathcal{S}(\alpha(\mathbb{P}))
+    \\
+    \int_{\omega} \lim_{||\mathbb{P}|| \rightarrow 0} \mathcal{A}_s^c(\mathbb{P}) &\approx \alpha(\mathbb{P})
+  \end{split}
+\end{equation}
+
+Lorsque la valeur de lissage $s$ est très petite ($s < 0.05$), l'écart de cette
+approximation avec le filtrage réel s'accroie. Cependant, nous n'avons pas
+trouvé de marge d'érreure significative dans notre implémentation pour toutes
+les valeurs de $s$ supérieurs à 0.05.
+
+\begin{figure}
+  \includegraphics[width=\linewidth]{figures/MixMax_Smoothness_Alpha.png}
+  \caption{
+    Résultats du mélange entre Voronoï et LRP2 utilisant $\mathcal{A}^c_s$ en
+    fonction de $s$ (lignes) et du biais linéaire d'entrée $\alpha$ (colonnes). Les
+    priorités des deux entrées sont inversées.
+  }
+  \label{fig::MixMax_SmoothnessAlpha}
+\end{figure}
+
+\subsection{Conclusion}
+
+La méthode que nous proposons permet de créer des transitions nettes et
+sensibles au contenu entre n'importe quel processus stochastique. La formule
+utilisé est analytiquement filtrable lorsque toutes les entrées le sont
+également. Cependant, certaines limitations persistent, comme les imrpécésions
+de filtrage pour des transitions très nettes.
+
+Un tel outil ouvre un large champ de possibilités pour la création de processus
+stochastiques à variation spatialle, le tout en temps réel et avec un très
+faible impact en calcul et en mémoire.
+
+\clearpage
 
 \printbibliography %Prints bibliography
 
