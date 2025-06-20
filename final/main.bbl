@@ -1,0 +1,235 @@
+% $ biblatex auxiliary file $
+% $ biblatex bbl format version 3.2 $
+% Do not modify the above lines!
+%
+% This is an auxiliary file used by the 'biblatex' package.
+% This file may safely be deleted. It will be recreated by
+% biber as required.
+%
+\begingroup
+\makeatletter
+\@ifundefined{ver@biblatex.sty}
+  {\@latex@error
+     {Missing 'biblatex' package}
+     {The bibliography requires the 'biblatex' package.}
+      \aftergroup\endinput}
+  {}
+\endgroup
+
+
+\refsection{0}
+  \datalist[entry]{ynt/global//global/global}
+    \entry{SOA_Noise}{article}{}
+      \name{author}{6}{}{%
+        {{hash=9bbae103994421b1e3d7e8238e4db844}{%
+           family={Lagae},
+           familyi={L\bibinitperiod},
+           given={A.},
+           giveni={A\bibinitperiod}}}%
+        {{hash=bbe9fa26089faf0885ce54a273445428}{%
+           family={Lefbvre},
+           familyi={L\bibinitperiod},
+           given={S.},
+           giveni={S\bibinitperiod}}}%
+        {{hash=3729f7e6bd88001faad0a3cbb133753f}{%
+           family={Cook},
+           familyi={C\bibinitperiod},
+           given={R.},
+           giveni={R\bibinitperiod}}}%
+        {{hash=aa795c409d21589a05ecae1048f9a79a}{%
+           family={T.Derose},
+           familyi={T\bibinitperiod}}}%
+        {{hash=44ae2701b52cf5edb8ce437203d8065c}{%
+           family={G.Drettakis},
+           familyi={G\bibinitperiod}}}%
+        {{hash=512e760db421b5cf73fa603ec0303548}{%
+           family={D.S.Ebert},
+           familyi={D\bibinitperiod}}}%
+      }
+      \strng{namehash}{c0953b09c0df4843809fc9c529dbdab4}
+      \strng{fullhash}{4a251be8aece5ffd16a666beb8f2f8e5}
+      \strng{bibnamehash}{c0953b09c0df4843809fc9c529dbdab4}
+      \strng{authorbibnamehash}{c0953b09c0df4843809fc9c529dbdab4}
+      \strng{authornamehash}{c0953b09c0df4843809fc9c529dbdab4}
+      \strng{authorfullhash}{4a251be8aece5ffd16a666beb8f2f8e5}
+      \field{labelalpha}{Lag+10}
+      \field{sortinit}{2}
+      \field{sortinithash}{8b555b3791beccb63322c22f3320aa9a}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{EUROGRAPHICS}
+      \field{title}{State of the Art in Procedural Noise Functions}
+      \field{year}{2010}
+      \verb{urlraw}
+      \verb https://www-sop.inria.fr/reves/Basilic/2010/LLCDDELPZ10/LLCDDELPZ10STARPNF.pdf
+      \endverb
+      \verb{url}
+      \verb https://www-sop.inria.fr/reves/Basilic/2010/LLCDDELPZ10/LLCDDELPZ10STARPNF.pdf
+      \endverb
+    \endentry
+    \entry{LRPN}{article}{}
+      \name{author}{5}{}{%
+        {{hash=519f9a682e31964e07e955c883c878b0}{%
+           family={Gilet},
+           familyi={G\bibinitperiod},
+           given={Guillaume},
+           giveni={G\bibinitperiod}}}%
+        {{hash=71fc3c9eafc8ff2124217509e63a5193}{%
+           family={Sauvage},
+           familyi={S\bibinitperiod},
+           given={Basile},
+           giveni={B\bibinitperiod}}}%
+        {{hash=19ffc8dfa46029f334af5aec88b2aa47}{%
+           family={Vanhoey},
+           familyi={V\bibinitperiod},
+           given={Kenneth},
+           giveni={K\bibinitperiod}}}%
+        {{hash=7b5c459be0e41b18471e21e38d4946ee}{%
+           family={Dischler},
+           familyi={D\bibinitperiod},
+           given={Jean-Michel},
+           giveni={J\bibinithyphendelim M\bibinitperiod}}}%
+        {{hash=8dbe9f8993ad5b09649024c062a46045}{%
+           family={Ghazanfarpour},
+           familyi={G\bibinitperiod},
+           given={Djamchid},
+           giveni={D\bibinitperiod}}}%
+      }
+      \strng{namehash}{97c600adea610849d28aeef2c7434e90}
+      \strng{fullhash}{4ba03a2a8749a8a7a50c041df7fc70dc}
+      \strng{bibnamehash}{97c600adea610849d28aeef2c7434e90}
+      \strng{authorbibnamehash}{97c600adea610849d28aeef2c7434e90}
+      \strng{authornamehash}{97c600adea610849d28aeef2c7434e90}
+      \strng{authorfullhash}{4ba03a2a8749a8a7a50c041df7fc70dc}
+      \field{labelalpha}{Gil+14}
+      \field{sortinit}{2}
+      \field{sortinithash}{8b555b3791beccb63322c22f3320aa9a}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{ACM Trans. Graph.}
+      \field{month}{11}
+      \field{title}{Local Random-Phase Noise for Procedural Texturing}
+      \field{volume}{33}
+      \field{year}{2014}
+      \field{pages}{195:1\bibrangedash 195:11}
+      \range{pages}{-1}
+      \verb{doi}
+      \verb 10.1145/2661229.2661249
+      \endverb
+    \endentry
+    \entry{HPnoise}{article}{}
+      \name{author}{2}{}{%
+        {{hash=7cd487dc85bee7c114f0c253a889a365}{%
+           family={Heitz},
+           familyi={H\bibinitperiod},
+           given={Eric},
+           giveni={E\bibinitperiod}}}%
+        {{hash=46f09761287ea9fcfe129e62d2be7b21}{%
+           family={Neyret},
+           familyi={N\bibinitperiod},
+           given={Fabrice},
+           giveni={F\bibinitperiod}}}%
+      }
+      \strng{namehash}{098dd87a7a8d77b57f9b315ff8b24612}
+      \strng{fullhash}{098dd87a7a8d77b57f9b315ff8b24612}
+      \strng{bibnamehash}{098dd87a7a8d77b57f9b315ff8b24612}
+      \strng{authorbibnamehash}{098dd87a7a8d77b57f9b315ff8b24612}
+      \strng{authornamehash}{098dd87a7a8d77b57f9b315ff8b24612}
+      \strng{authorfullhash}{098dd87a7a8d77b57f9b315ff8b24612}
+      \field{labelalpha}{HN18}
+      \field{sortinit}{2}
+      \field{sortinithash}{8b555b3791beccb63322c22f3320aa9a}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{COMPUTER GRAPHICS forum}
+      \field{title}{High-Performance By-Example Noise using a Histogram-Preserving Blending Operator}
+      \field{year}{2018}
+      \verb{urlraw}
+      \verb https://inria.hal.science/hal-01824773v1/document
+      \endverb
+      \verb{url}
+      \verb https://inria.hal.science/hal-01824773v1/document
+      \endverb
+    \endentry
+    \entry{mixmax}{article}{}
+      \name{author}{2}{}{%
+        {{hash=7b771a91802a08ac414dbb7eb35f5bd7}{%
+           family={Fournier},
+           familyi={F\bibinitperiod},
+           given={Romain},
+           giveni={R\bibinitperiod}}}%
+        {{hash=71fc3c9eafc8ff2124217509e63a5193}{%
+           family={Sauvage},
+           familyi={S\bibinitperiod},
+           given={Basile},
+           giveni={B\bibinitperiod}}}%
+      }
+      \strng{namehash}{c562209d03a04ccbb2f7d442e6df797c}
+      \strng{fullhash}{c562209d03a04ccbb2f7d442e6df797c}
+      \strng{bibnamehash}{c562209d03a04ccbb2f7d442e6df797c}
+      \strng{authorbibnamehash}{c562209d03a04ccbb2f7d442e6df797c}
+      \strng{authornamehash}{c562209d03a04ccbb2f7d442e6df797c}
+      \strng{authorfullhash}{c562209d03a04ccbb2f7d442e6df797c}
+      \field{labelalpha}{FS24}
+      \field{sortinit}{2}
+      \field{sortinithash}{8b555b3791beccb63322c22f3320aa9a}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{COMPUTER GRAPHICS forum}
+      \field{title}{Mix-Max: A Content-Aware Operator for Real-Time Texture Transitions}
+      \field{year}{2024}
+      \verb{urlraw}
+      \verb https://onlinelibrary.wiley.com/doi/epdf/10.1111/cgf.15193
+      \endverb
+      \verb{url}
+      \verb https://onlinelibrary.wiley.com/doi/epdf/10.1111/cgf.15193
+      \endverb
+    \endentry
+    \entry{One_Noise}{article}{}
+      \name{author}{4}{}{%
+        {{hash=c07ed9937bc22141c0168f76a96acd21}{%
+           family={Maesumi},
+           familyi={M\bibinitperiod},
+           given={Arman},
+           giveni={A\bibinitperiod}}}%
+        {{hash=d4c4d8d5050b45223563516512be26b1}{%
+           family={HU},
+           familyi={H\bibinitperiod},
+           given={DYlan},
+           giveni={D\bibinitperiod}}}%
+        {{hash=948c34a1c4f24de17f463eb08a9fd10b}{%
+           family={KIM},
+           familyi={K\bibinitperiod},
+           given={Vladimir\bibnamedelima G.},
+           giveni={V\bibinitperiod\bibinitdelim G\bibinitperiod}}}%
+        {{hash=c6a9851e2e9aaa398d8559793bfca200}{%
+           family={Fisher},
+           familyi={F\bibinitperiod},
+           given={Matthew},
+           giveni={M\bibinitperiod}}}%
+      }
+      \strng{namehash}{f79250db1399bda499d368e5955bb500}
+      \strng{fullhash}{b5422ec9199712b4da995773ecb8ef3e}
+      \strng{bibnamehash}{f79250db1399bda499d368e5955bb500}
+      \strng{authorbibnamehash}{f79250db1399bda499d368e5955bb500}
+      \strng{authornamehash}{f79250db1399bda499d368e5955bb500}
+      \strng{authorfullhash}{b5422ec9199712b4da995773ecb8ef3e}
+      \field{labelalpha}{Mae+24}
+      \field{sortinit}{2}
+      \field{sortinithash}{8b555b3791beccb63322c22f3320aa9a}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{SIGGRAPH}
+      \field{title}{One Noise to Rule Them All: Learning a Unified Model of Spatially-Varying Noise Patterns}
+      \field{year}{2024}
+      \verb{urlraw}
+      \verb https://arxiv.org/pdf/2404.16292
+      \endverb
+      \verb{url}
+      \verb https://arxiv.org/pdf/2404.16292
+      \endverb
+    \endentry
+  \enddatalist
+\endrefsection
+\endinput
+

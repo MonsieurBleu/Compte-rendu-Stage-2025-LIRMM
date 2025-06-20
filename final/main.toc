@@ -1,0 +1,27 @@
+\babel@toc {french}{}\relax 
+\contentsline {section}{\numberline {1}Introduction}{2}{}%
+\contentsline {subsection}{\numberline {1.1}Contexte du stage}{2}{}%
+\contentsline {subsection}{\numberline {1.2}Contexte technique et méthode de travail}{2}{}%
+\contentsline {subsection}{\numberline {1.3}Problématique}{2}{}%
+\contentsline {section}{\numberline {2}État de l'art}{3}{}%
+\contentsline {subsection}{\numberline {2.1}State of the Art in Procedural Noise Functions}{3}{}%
+\contentsline {subsection}{\numberline {2.2}One Noise to Rule Them All: Learning a Unified Model of Spatially-Varying Noise Pattern}{4}{}%
+\contentsline {subsection}{\numberline {2.3}High-Performance By-Example Noise using a Histogram-Preserving Blending Operator}{4}{}%
+\contentsline {subsection}{\numberline {2.4}Mix-Max: A Content-Aware Operator for Real-Time Texture Transitions}{5}{}%
+\contentsline {section}{\numberline {3}Mélange de processus stationnaires}{6}{}%
+\contentsline {subsection}{\numberline {3.1}Texture, Bruit et empreinte}{6}{}%
+\contentsline {subsection}{\numberline {3.2}Opérateur de mélange}{6}{}%
+\contentsline {subsection}{\numberline {3.3}Stationnarité}{7}{}%
+\contentsline {section}{\numberline {4}Création de variation spatiale par Pavage et Mélange}{8}{}%
+\contentsline {subsection}{\numberline {4.1}Méthode}{8}{}%
+\contentsline {subsection}{\numberline {4.2}Limitations}{9}{}%
+\contentsline {section}{\numberline {5}Création de variation spatiale par Mix-Max}{10}{}%
+\contentsline {subsection}{\numberline {5.1}Motivations}{10}{}%
+\contentsline {subsection}{\numberline {5.2}Priorité équilibré}{10}{}%
+\contentsline {subsection}{\numberline {5.3}Priorité de bruits procéduraux}{11}{}%
+\contentsline {subsection}{\numberline {5.4}Micro-priorité et filtrage pour un mélange équilibré}{11}{}%
+\contentsline {subsection}{\numberline {5.5}Méthode d'estimation de la variance de textures procédurales}{12}{}%
+\contentsline {section}{\numberline {6}Conclusion et apports}{12}{}%
+\contentsline {subsection}{\numberline {6.1}Pavage et mélange}{12}{}%
+\contentsline {subsection}{\numberline {6.2}Mix-Max}{12}{}%
+\contentsline {subsection}{\numberline {6.3}Perspectives et améliorations}{12}{}%
